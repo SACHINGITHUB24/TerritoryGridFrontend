@@ -145,5 +145,5 @@ export default function TerritoryGrid({ userId, onStatsUpdate, onActivity, onLea
       })}
     </div>
   )
-// }
+}
 
