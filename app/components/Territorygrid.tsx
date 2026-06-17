@@ -183,7 +183,7 @@ export default function TerritoryGrid({ userId, onStatsUpdate, onActivity, onLea
   const socketRef = useRef<<Socket | null>(null)
 
   useEffect(() => {
-    const socket = io('https://territorygridbackend-production.up.railway.app', {
+    const socket = io('territorygridbackend-production.up.railway.app/server.js', {
       transports: ['websocket', 'polling'],
     })
     socketRef.current = socket
