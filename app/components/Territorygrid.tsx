@@ -33,7 +33,7 @@ export default function TerritoryGrid({ userId, onStatsUpdate, onActivity, onLea
   const socketRef = useRef<Socket | null>(null)
 
   useEffect(() => {
-    const socket = io('https://territorygridbackend-production.up.railway.app/server.js')
+    const socket = io('https://territorygridbackend-production.up.railway.app')
     socketRef.current = socket
 
     socket.on('init', (blocks: { id: number; ownerId: string }[]) => {
