@@ -96,9 +96,13 @@ export default function TerritoryGrid({ userId, onStatsUpdate, onActivity, onLea
       }, 500)
     })
 
+    // socket.on('online_count', (count: number) => {
+    //   onStatsUpdate(0, count, 0)
+    // })
+
     socket.on('online_count', (count: number) => {
-      onStatsUpdate(0, count, 0)
-    })
+  onStatsUpdate(-1, count, -1)  // use -1 as sentinel, ignore in parent
+})
 
     return () => {
       socket.off('grid_reset')
