@@ -112,7 +112,7 @@ return () => {
     socket.off('online_count')
     socket.off('grid_reset')
     socket.disconnect()
-  }
+  },
 
   const handleBlockClick = (index: number) => {
     const x = index % GRID_SIZE
