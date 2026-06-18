@@ -104,11 +104,15 @@ export default function TerritoryGrid({ userId, onStatsUpdate, onActivity, onLea
   onStatsUpdate(-1, count, -1)  // use -1 as sentinel, ignore in parent
 })
 
-    return () => {
-      socket.off('grid_reset')
-      socket.disconnect()
-    }
-  }, [userId])
+    
+return () => {
+    // Clean up ALL listeners, not just grid_reset
+    socket.off('init')
+    socket.off('block_updated')
+    socket.off('online_count')
+    socket.off('grid_reset')
+    socket.disconnect()
+  }
 
   const handleBlockClick = (index: number) => {
     const x = index % GRID_SIZE
